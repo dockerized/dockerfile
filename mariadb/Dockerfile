@@ -15,7 +15,7 @@ RUN apt-get install -y -q mariadb-server
 
 RUN sed -i 's/^\(bind-address\s.*\)/# \1/' /etc/mysql/my.cnf
 RUN mysqld_safe &
-RUN sleep 5
+RUN mysqladmin --silent --wait=30 ping || exit 1
 run mysql -e 'GRANT ALL PRIVILEGES ON *.* TO \"root\"@\"%\";'
 
 # Define mountable directories.
