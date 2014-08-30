@@ -11,7 +11,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0xcbcb082a1bb94
 RUN echo "deb http://mirrors.neusoft.edu.cn/mariadb/repo/10.0/ubuntu trusty main" > /etc/apt/sources.list.d/mariadb.list
 
 RUN apt-get update
-RUN apt-get install mariadb-server
+RUN apt-get install -y -q mariadb-server
 
 RUN sed -i 's/^\(bind-address\s.*\)/# \1/' /etc/mysql/my.cnf
 RUN mysqld_safe &
