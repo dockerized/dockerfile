@@ -6,8 +6,7 @@ FROM google/golang
 
 MAINTAINER jack.zhang <zhangskills@gmail.com>
 
-RUN \
-  echo "go get github.com/revel/revel" > /tmp/config && \
-  echo "go get github.com/revel/cmd/revel" >> /tmp/config && \
-  bash /tmp/config && \
-  rm -f /tmp/config
+RUN go get github.com/revel/revel
+RUN go get github.com/revel/cmd/revel
+
+CMD ["revel run lvxing"]
