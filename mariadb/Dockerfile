@@ -13,10 +13,10 @@ RUN echo "deb http://mirrors.neusoft.edu.cn/mariadb/repo/10.0/ubuntu trusty main
 RUN apt-get update
 RUN apt-get install -y -q mariadb-server
 
-RUN sed -i 's/^\(bind-address\s.*\)/# \1/' /etc/mysql/my.cnf
-RUN mysqld_safe &
-RUN mysqladmin --silent --wait=30 ping || exit 1
-run mysql -e 'GRANT ALL PRIVILEGES ON *.* TO \"root\"@\"%\";'
+# RUN sed -i 's/^\(bind-address\s.*\)/# \1/' /etc/mysql/my.cnf
+# RUN mysqld_safe &
+# RUN mysqladmin --silent --wait=30 ping || exit 1
+# run mysql -e 'GRANT ALL PRIVILEGES ON *.* TO \"root\"@\"%\";'
 
 # Define mountable directories.
 VOLUME ["/var/lib/mysql"]
