@@ -8,7 +8,7 @@ FROM dockerfile/ubuntu
 # Install MariaDB.
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0xcbcb082a1bb943db
-RUN echo "deb http://mirrors.neusoft.edu.cn/mariadb/repo/10.0/ubuntu trusty main" > /etc/apt/sources.list.d/mariadb.list && \
+RUN echo "deb http://mirrors.neusoft.edu.cn/mariadb/repo/10.0/ubuntu trusty main" > /etc/apt/sources.list.d/mariadb.list
 
 RUN apt-get update
 RUN apt-get install mariadb-server
