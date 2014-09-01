@@ -9,8 +9,7 @@ FROM dockerfile/ubuntu
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0xcbcb082a1bb943db
 RUN echo "deb http://mirrors.neusoft.edu.cn/mariadb/repo/10.0/ubuntu trusty main" > /etc/apt/sources.list.d/mariadb.list
   # ln -fs /bin/true /usr/bin/chfn && \
-RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mariadb-server
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y mariadb-server
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN sed -i 's/^\(bind-address\s.*\)/# \1/' /etc/mysql/my.cnf
