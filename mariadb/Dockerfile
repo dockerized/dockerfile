@@ -8,19 +8,15 @@
 # 基础镜像
 FROM dockerfile/ubuntu
 
+# 安装MariaDB，开启远程访问，并且只保留一个远程root用户
 RUN \
-  # 安装MariaDB.
   apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0xcbcb082a1bb943db && \
   echo "deb http://mariadb.mirror.iweb.com/repo/10.0/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/mariadb.list && \
-  apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y mariadb-server && \
+  apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y mariadb-server && \
   rm -rf /var/lib/apt/lists/* && \
-
-  #开启远程访问，并且只保留一个远程root用户
   sed -i 's/^\(bind-address\s.*\)/# \1/' /etc/mysql/my.cnf && \
   echo "mysqld_safe &" > /tmp/config && \
   echo "mysqladmin --silent --wait=30 ping || exit 1" >> /tmp/config && \
-  # echo "mysql -e 'GRANT ALL PRIVILEGES ON *.* TO \"root\"@\"%\";'" >> /tmp/config && \
   echo "mysql -e 'use mysql;update user set host=\'%\',password=password(\'jack1233\') where user=\'root\' and host=\'localhost\';delete from user where host!=\'%\';'" >> /tmp/config && \
   bash /tmp/config && \
   rm -f /tmp/config
