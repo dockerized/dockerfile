@@ -17,7 +17,7 @@ RUN \
   sed -i 's/^\(bind-address\s.*\)/# \1/' /etc/mysql/my.cnf && \
   echo "mysqld_safe &" > /tmp/config && \
   echo "mysqladmin --silent --wait=30 ping || exit 1" >> /tmp/config && \
-  echo "mysql -e 'use mysql;update user set host=\'%\' where user=\'root\' and host=\'localhost\';delete from user where host!=\'%\';'" >> /tmp/config && \
+  echo "mysql -e 'use mysql;update user set host=\"%\" where user=\"root\" and host=\"localhost\";delete from user where host!=\"%\";'" >> /tmp/config && \
   bash /tmp/config && \
   rm -f /tmp/config
 
