@@ -205,6 +205,18 @@ ENV LOG_LEVEL Info
 ### log.console
 ENV LOG_CONSOLE_LEVEL Info
 
-EXPOSE 3000
+# run-as git and own everything (gettext-base has envsubst)
+RUN apt-get install -y openssh-server gettext-base && \
+    su -c "useradd --system --comment gogits git " && \
+    mkdir -p /home/git ./ssh && \
+    ln -s ./ssh /home/git/.ssh && \
+    chmod -R 0700 ./ssh && \
+    chown -R git:git .
+
+USER git
+
+ENV HOME /home/git
+
+EXPOSE 22 3000
 CMD []
 ENTRYPOINT ["./start.sh"]
