@@ -8,9 +8,8 @@ MAINTAINER jack.zhang <zhangskills@gmail.com>
 
 RUN \
   git clone https://github.com/cnodejs/nodeclub.git && \
-  cd nodeclub/ && npm install
-
-ADD config.js /data/nodeclub
+  cd nodeclub/ && npm install && \
+  wget https://raw.githubusercontent.com/zhangskills/dockerfile/master/nodeclub/config.js
 
 # Define working directory.
 WORKDIR /data/nodeclub
