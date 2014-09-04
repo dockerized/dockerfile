@@ -2,20 +2,22 @@
 # nodeclub Dockerfile
 #
 
-FROM dockerfile/nodejs
+FROM dockerfile/mongodb
 
 MAINTAINER jack.zhang <zhangskills@gmail.com>
 
 RUN \
-  git clone https://github.com/cnodejs/nodeclub.git && \
-  cd nodeclub/ && npm install && \
-  wget https://raw.githubusercontent.com/zhangskills/dockerfile/master/nodeclub/config.js
+	curl -sL https://deb.nodesource.com/setup | sudo bash - && \
+	apt-get install nodejs
+
+# Define mountable directories.
+VOLUME ["/data"]
 
 # Define working directory.
-WORKDIR /data/nodeclub
+WORKDIR /data
 
 # Define default command.
-CMD ["/usr/local/bin/node app.js"]
+CMD ["node app.js"]
 
 # Expose ports.
 EXPOSE 3000
