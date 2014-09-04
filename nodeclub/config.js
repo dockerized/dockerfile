@@ -83,11 +83,11 @@ var config = {
   },
 
   // github 登陆的配置
-  // GITHUB_OAUTH: {
-  //   clientID: 'your GITHUB_CLIENT_ID',
-  //   clientSecret: 'your GITHUB_CLIENT_SECRET',
-  //   callbackURL: 'http://cnodejs.org/auth/github/callback',
-  // },
+  GITHUB_OAUTH: {
+    clientID: 'your GITHUB_CLIENT_ID',
+    clientSecret: 'your GITHUB_CLIENT_SECRET',
+    callbackURL: 'http://cnodejs.org/auth/github/callback',
+  },
   // 是否允许直接注册（否则只能走 github 的方式）
   allow_sign_up: true,
 
