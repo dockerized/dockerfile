@@ -8,7 +8,7 @@ MAINTAINER jack.zhang <zhangskills@gmail.com>
 
 RUN \
 	curl -sL https://deb.nodesource.com/setup | sudo bash - && \
-	apt-get install nodejs
+	apt-get install -y nodejs
 
 # Define mountable directories.
 VOLUME ["/data"]
