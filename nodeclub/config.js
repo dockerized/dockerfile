@@ -35,12 +35,12 @@ var config = {
   google_tracker_id: 'UA-41753901-5',
 
   // mongodb 配置
-  db: 'mongodb://127.0.0.1/node_club_dev',
+  db: 'mongodb://mongodb/node_club_dev',
   db_name: 'node_club_dev',
 
 
-  session_secret: 'node_club', // 务必修改
-  auth_cookie_name: 'node_club',
+  session_secret: 'sadfasdfdf11sdf', // 务必修改
+  auth_cookie_name: 'gl',
 
   // 程序运行的端口
   port: 3000,
