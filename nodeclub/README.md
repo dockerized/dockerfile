@@ -9,4 +9,4 @@
 
 或
 
-`docker run -d --name nodeclub -v 本地目录:/node -p 3000:3000 zhangskills/nodeclub /bin/bash -c '`mongod >> mongod.log &` && node app.js'`
+`docker run -d --name nodeclub -v 本地目录:/node -p 3000:3000 zhangskills/nodeclub /bin/bash -c '`mongod >> mongod.log &` && forever start -w app.js'
