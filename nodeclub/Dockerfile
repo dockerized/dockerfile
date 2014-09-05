@@ -18,7 +18,7 @@ VOLUME ["/node"]
 WORKDIR /node
 
 # Define default command.
-CMD ["/bin/bash -c '`mongod >> mongod.log &` && forever start -w app.js'"]
+CMD ["mongod >> mongod.log &","node app.js"]
 
 # Expose ports.
 EXPOSE 3000
