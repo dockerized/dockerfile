@@ -11,10 +11,10 @@ RUN \
 	apt-get install -y nodejs
 
 # Define mountable directories.
-VOLUME ["/data"]
+VOLUME ["/node"]
 
 # Define working directory.
-WORKDIR /data
+WORKDIR /node
 
 # Define default command.
 CMD ["node app.js"]
