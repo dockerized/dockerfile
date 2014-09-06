@@ -21,4 +21,4 @@ RUN go get github.com/gosexy/to
 VOLUME ["/data"]
 
 # Define working directory.
-WORKDIR /gopath
+WORKDIR /gopath/src
