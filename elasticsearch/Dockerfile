@@ -16,8 +16,7 @@ RUN \
   tar xvzf v1.2.6.tar.gz && \
   rm -f v1.2.6.tar.gz && \
   mv /tmp/elasticsearch-analysis-ik-1.2.6/config/ik /elasticsearch/config && \
-  /elasticsearch/bin/plugin -install mobz/elasticsearch-head && \
-  /elasticsearch/bin/plugin -install lukas-vlcek/bigdesk
+  rm -rf /tmp/elasticsearch-analysis-ik-1.2.6
 
 # Define mountable directories.
 VOLUME ["/data"]
