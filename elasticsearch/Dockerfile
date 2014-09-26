@@ -8,7 +8,7 @@ FROM dockerfile/java:oracle-java7
 # Install ElasticSearch.
 RUN \
   cd /tmp && \
-  wget https://github.com/elasticsearch/elasticsearch/archive/v1.3.2.tar.gz && \
+  wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.2.tar.gz && \
   tar xvzf v1.3.2.tar.gz && \
   rm -f v1.3.2.tar.gz && \
   mv /tmp/elasticsearch-1.3.2 /elasticsearch && \
