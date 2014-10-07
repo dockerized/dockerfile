@@ -11,3 +11,5 @@ RUN \
 	mv gitblit-1.6.0.war ${CATALINA_HOME}/webapps/
 
 VOLUME [/tomcat]
+
+EXPOSE 29418

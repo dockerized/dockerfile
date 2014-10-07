@@ -16,6 +16,7 @@ RUN go get github.com/xiocode/glog
 RUN go get github.com/dchest/captcha
 RUN go get github.com/tools/godep
 RUN go get github.com/gosexy/to
+RUN go get github.com/sergi/go-diff/diffmatchpatch
 
 # Define mountable directories.
 VOLUME ["/data"]
